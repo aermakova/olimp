@@ -8,83 +8,79 @@ $(function() {
 	    }
 	});
 
+	$('.navbar-nav .nav-link').click(function(){
+        var link = $(this).attr('href');
+        var coordinats = $(link).offset().top - 50;
+		var windowWidth = $(window).width();
+                
+        $('html, body').animate({scrollTop:coordinats}, 1000);
+        if(windowWidth < 992){
+            $('.navbar-collapse').collapse('hide');
+        }
+        return false;
+    });
+
     new WOW().init();
+
+    WOW.prototype.addProjectAnemation = function(element){
+	    this.boxes.push(element);
+	};
 
 	$(".phone-mask").mask("+7(999) 999-99-99");
 
-   //  $('.projects-slider').owlCarousel({
-   //      loop: true, //Зацикливаем слайдер
-   //      margin: 30, //Отступ от элемента справа в 50px
-   //      nav: true, //Отключение навигации
-   //      navText: ["<i class='icon-back'></i>","<i class='icon-next'></i>"],
-   //      dots: false,
-   //      stopOnHover: true,
-   //      //autoplay: true, //Автозапуск слайдера
-   //      smartSpeed: 1000, //Время движения слайда
-   //      //autoplayTimeout: 3000, //Время смены слайда
-   //      responsive: { //Адаптивность. Кол-во выводимых элементов при определенной ширине.
-   //          375:{
-   //              items:1
-   //          },
-   //          992:{
-   //              items:3
-   //          },
-   //          1000:{
-   //              items:3
-   //          }
+	$(".tooltip").tooltip();
 
-   //      }
-   //  });
+	var optionsProjectSlider = {
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		prevArrow: '<button type="button" class="slider-arrow slider-arrow-back"><i class="icon-back"></i></button>',
+		nextArrow: '<button type="button" class="slider-arrow slider-arrow-next"><i class="icon-next"></i></button>',
+		dots: false,
+		infinite: false,
+		responsive: [
+		    {
+		      breakpoint: 1199,
+		      settings: {
+		        slidesToShow: 2,
+		        slidesToScroll: 1,
+		      }
+		    },
+		    {
+		      breakpoint: 767,
+		      settings: {
+		        slidesToShow: 1,
+		        slidesToScroll: 1,
+		      }
+		    },
+		]
+	}
 
-   //  $('.reviews-slider').owlCarousel({
-   //      // loop: true, //Зацикливаем слайдер
-   //      //margin: 30, //Отступ от элемента справа в 50px
-   //      nav: false, //Отключение навигации
-   //      dots: true,
-   //      // items:3,
-   //      // singleItem: true,
-   //      // stopOnHover: true,
-   //      // //autoplay: true, //Автозапуск слайдера
-   //      // smartSpeed: 1000, //Время движения слайда
-   //      //autoplayTimeout: 3000, //Время смены слайда
-   //      // responsive: { //Адаптивность. Кол-во выводимых элементов при определенной ширине.
-   //      //     375:{
-   //      //         items:1
-   //      //     },
-   //      //     992:{
-   //      //         items:3
-   //      //     },
-   //      //     1000:{
-   //      //         items:3
-   //      //     }
+	$('.projects-slider').slick(optionsProjectSlider);
 
-   //      // }
-   //  });
-
-	$('.projects-slider').slick({
-	    slidesToShow: 3,
-	    slidesToScroll: 1,
-	    prevArrow: '<button type="button" class="slider-arrow slider-arrow-back"><i class="icon-back"></i></button>',
-	    nextArrow: '<button type="button" class="slider-arrow slider-arrow-next"><i class="icon-next"></i></button>',
-	    dots: false,
-	    infinite: false,
-	    responsive: [
-	        {
-	          breakpoint: 1199,
-	          settings: {
-	            slidesToShow: 2,
-	            slidesToScroll: 1,
-	          }
-	        },
-	        {
-	          breakpoint: 767,
-	          settings: {
-	            slidesToShow: 1,
-	            slidesToScroll: 1,
-	          }
-	        },
-	    ]
+	//обработка клика на кнопку показать все проекты
+	$(".projects-link__btn").on( "click", function () {
+		var siblinqsProjects = $(this).parent().siblings('.projects-slider');
+	    toggleProjectsSlider(siblinqsProjects, $(this));
 	});
+
+	//функция, которая деактивирует слайдер и задает анимацию проектам
+	function toggleProjectsSlider(projects, btn) {
+    	var projectItems = $(projects).find('.project');
+    	var button = btn;
+	  	if ($(projects).hasClass('slick-initialized')) {
+		    $(projects).slick('destroy');
+		    button.text('Свернуть проекты');
+	     	for (let i=0; i<projectItems.length; i++){
+	     		projectItems.filter("[tabindex='-1']").addClass('show-project');
+	     		projectItems.removeClass('hide-project');
+	     	}
+	    } else {
+			$('.projects-slider').not('.slick-initialized').slick(optionsProjectSlider);
+		  	projectItems.filter("[tabindex='0']").addClass('hide-project');
+			projectItems.removeClass('show-project');
+		    button.text('Показать все проекты');
+	    }     
+	}
 
 	$('.reviews-slider').slick({
 	    slidesToShow: 3,
@@ -113,9 +109,6 @@ $(function() {
             $(this).addClass('active').siblings().removeClass('active');
         }).first().click();
 	});
-
-	
-
 
     // var for center in yandex map, in table & mobile it should be olimp company
     var centerForYandexMap = [58.021389, 56.259341]; //center for desctop
