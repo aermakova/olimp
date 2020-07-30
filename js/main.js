@@ -143,47 +143,47 @@ $(function() {
 	});
 
     // var for center in yandex map, in table & mobile it should be olimp company
- //    var centerForYandexMap = [58.021389, 56.259341]; //center for desctop
+    var centerForYandexMap = [58.021389, 56.259341]; //center for desctop
 
- //    if ($(window).width() < "768"){
- //    	centerForYandexMap = [58.023508, 56.265687]; //center for table & mobile
- //    }
+    if ($(window).width() < "768"){
+    	centerForYandexMap = [58.023508, 56.265687]; //center for table & mobile
+    }
 
-	// if ( $('#map').length) {
-	// 	ymaps.ready(function () {
-	// 	    var myMap = new ymaps.Map("map", {
-	// 	      center: centerForYandexMap,
-	// 	      zoom: 15.5,
-	// 	      controls: []
-	// 	    });
+	if ( $('#map').length) {
+		ymaps.ready(function () {
+		    var myMap = new ymaps.Map("map", {
+		      center: centerForYandexMap,
+		      zoom: 15.5,
+		      controls: []
+		    });
 
-	// 	    myPlacemarkWithContent = new ymaps.Placemark([58.021520, 56.265614], {
-	// 	        hintContent: 'г. Пермь ул. Фрезеровщиков д. 86',
-	// 	        balloonContent: 'г. Пермь ул. Фрезеровщиков д. 86',
-	// 	        iconContent: ''
-	// 	    }, {
-	// 	        *
-	// 	         * Options.
-	// 	         * You must specify this type of layout.
+		    myPlacemarkWithContent = new ymaps.Placemark([58.021520, 56.265614], {
+		        hintContent: 'г. Пермь ул. Фрезеровщиков д. 86',
+		        balloonContent: 'г. Пермь ул. Фрезеровщиков д. 86',
+		        iconContent: ''
+		    }, {
+		        // *
+		        //  * Options.
+		        //  * You must specify this type of layout.
 		         
-	// 	        iconLayout: 'default#imageWithContent',
-	// 	        // Custom image for the placemark icon.
-	// 	        iconImageHref: 'img/point.png',
-	// 	        // The size of the placemark.
-	// 	        iconImageSize: [44, 64],
-	// 	        /**
-	// 	         * The offset of the upper left corner of the icon relative
-	// 	         * to its "tail" (the anchor point).
-	// 	         */
-	// 	        iconImageOffset: [-24, -80],
-	// 	        // Offset of the layer with content relative to the layer with the image.
-	// 	        iconContentOffset: [15, 15],
-	// 	        // Content layout.
-	// 	        //iconContentLayout: MyIconContentLayout
-	// 	    });
+		        iconLayout: 'default#imageWithContent',
+		        // Custom image for the placemark icon.
+		        iconImageHref: 'img/point.png',
+		        // The size of the placemark.
+		        iconImageSize: [44, 64],
+		        /**
+		         * The offset of the upper left corner of the icon relative
+		         * to its "tail" (the anchor point).
+		         */
+		        iconImageOffset: [-24, -80],
+		        // Offset of the layer with content relative to the layer with the image.
+		        iconContentOffset: [15, 15],
+		        // Content layout.
+		        //iconContentLayout: MyIconContentLayout
+		    });
 			
-	// 		myMap.geoObjects.add(myPlacemarkWithContent);
-	// 	});
-	// }
+			myMap.geoObjects.add(myPlacemarkWithContent);
+		});
+	}
     
 });
