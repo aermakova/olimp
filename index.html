@@ -9,9 +9,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@1&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">s
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link rel="stylesheet" href="libs/slick.css" />
+	<link rel="stylesheet" href="libs/slick.css"/>
+	<link rel="stylesheet" href="libs/lightbox.min.css"/>
 	<link rel="stylesheet" href="libs/animate.css" />
 	<link rel="stylesheet" href="css/style.css">
 
@@ -38,8 +39,28 @@
 				        <li class="nav-item">
 				        	<a class="nav-link" href="#action">Акция</a>
 				        </li>
-				        <li class="nav-item">
-				        	<a class="nav-link" href="#projects">Проекты</a>
+				        <li class="nav-item nav-item-dropdown">
+				        	<a class="nav-link" data-toggle="collapse" href="#nav-submenu" role="button" aria-expanded="false" aria-controls="nav-submenu">Проекты</a>
+				        	<ul class="navbar-nav-submenu collapse" id="nav-submenu">
+				        		<li class="nav-item">
+						        	<a class="nav-link" href="#projects1">Гостевые дома до 80m<sup>2</sup></a>
+						        </li>
+						        <li class="nav-item">
+						        	<a class="nav-link" href="#projects2">Дачи до 100m<sup>2</sup></a>
+						        </li>
+						        <li class="nav-item">
+						        	<a class="nav-link" href="#projects3">Компактные дома до 150m<sup>2</sup></a>
+						        </li>
+						        <li class="nav-item">
+						        	<a class="nav-link" href="#projects4">Комфортные дома от 150m<sup>2</sup></a>
+						        </li>
+						        <li class="nav-item">
+						        	<a class="nav-link" href="#projects5">Усадьбы от 250m<sup>2</sup></a>
+						        </li>
+						        <li class="nav-item">
+						        	<a class="nav-link" href="#projects6">Особняки от 350m<sup>2</sup></a>
+						        </li>
+				        	</ul>
 				        </li>
 				        <li class="nav-item">
 				        	<a class="nav-link" href="#portfolio">Портфолио</a>
@@ -96,7 +117,7 @@
 			</div>
 		</section>
 
-		<section id="projects" class="section projects">
+		<section id="projects1" class="section projects">
 			<div class="container">
 				<h2 class="title text-center">Выбирайте из более чем 500 проектов домов <br> от 37,5 до 500 квадратных метров</h2>
 				<h2 class="title bottom-line">Гостевые дома до 80m<sup>2</sup></h2>
@@ -239,7 +260,7 @@
 			</div>
 		</section>
 
-		<section class="section projects">
+		<section id="projects2" class="section projects">
 			<div class="container">
 				<h2 class="title bottom-line">Дачи до 100m<sup>2</sup></h2>
 				<div class="project-list row projects-slider">
@@ -393,7 +414,7 @@
 			</div>
 		</section>
 
-		<section class="section projects">
+		<section id="projects3" class="section projects">
 			<div class="container">
 				<h2 class="title bottom-line">Компактные дома до 150m<sup>2</sup></h2>
 				<div class="project-list row projects-slider">
@@ -535,7 +556,7 @@
 			</div>
 		</section>
 
-		<section class="section projects">
+		<section id="projects4" class="section projects">
 			<div class="container">
 				<h2 class="title bottom-line">Комфортные дома от 150m<sup>2</sup></h2>
 				<div class="project-list row projects-slider">
@@ -701,7 +722,7 @@
 			</div>
 		</section>
 
-		<section class="section projects">
+		<section id="projects5" class="section projects">
 			<div class="container">
 				<h2 class="title bottom-line">Усадьбы от 250m<sup>2</sup></h2>
 				<div class="project-list row projects-slider">
@@ -843,7 +864,7 @@
 			</div>
 		</section>
 
-		<section class="section projects">
+		<section  id="projects6"class="section projects">
 			<div class="container">
 				<h2 class="title bottom-line">Особняки от 350m<sup>2</sup></h2>
 				<div class="project-list row projects-slider">
@@ -1153,24 +1174,28 @@
 				<p>Все наши отзовы и рекомендательные письмы вы можете посмотреть в наших аккаунтах в социальных сетях <br> <a href="https://www.instagram.com/olymp.prm/">@olymp.prm</a> и <a href="https://vk.com/o;ymp.prm">vk.com/o;ymp.prm</a></p>
 				<div class="reviews-block reviews-slider slick-slider">
 					<div class="reviews-block__item">
-						<div class="reviews-block__img">
+						<a data-lightbox="reviews" href="img/reviews/reviews-big/img-1.jpg" class="reviews-block__img" data-title="Описание изображения 1">
 							<img src="img/reviews/img-1.jpg" alt="" title="">
-						</div>
+							<i class="icon-zoom reviews-block__img-zoom"></i>
+						</a>
 					</div>
 					<div class="reviews-block__item">
-						<div class="reviews-block__img">
+						<a data-lightbox="reviews" href="img/reviews/reviews-big/img-2.jpg" class="reviews-block__img" data-title="Описание изображения 2">
 							<img src="img/reviews/img-2.jpg" alt="" title="">
-						</div>
+							<i class="icon-zoom reviews-block__img-zoom"></i>
+						</a>
 					</div>
 					<div class="reviews-block__item">
-						<div class="reviews-block__img">
+						<a data-lightbox="reviews" href="img/reviews/reviews-big/img-3.jpg" class="reviews-block__img" data-title="Описание изображения 3">
 							<img src="img/reviews/img-3.jpg" alt="" title="">
-						</div>
+							<i class="icon-zoom reviews-block__img-zoom"></i>
+						</a>
 					</div>
 					<div class="reviews-block__item">
-						<div class="reviews-block__img">
-							<img src="img/reviews/img-3.jpg" alt="" title="">
-						</div>
+						<a data-lightbox="reviews" href="img/reviews/reviews-big/img-1.jpg" class="reviews-block__img" data-title="Описание изображения 4">
+							<img src="img/reviews/img-1.jpg" alt="" title="">
+							<i class="icon-zoom reviews-block__img-zoom"></i>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -1332,50 +1357,74 @@
 			        			<div class="modal-slider">
 			        			    <div class="modal-slider__item active">
 			        			    	<div class="modal-slider__item-wrap">
-			        			    		<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
+			        			    		<a data-lightbox="modal-slider" href="img/projects/project.jpg" data-title="Описание изображения">
+			        			    			<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
+			        			    		</a>
 			        			    		<span class="modal-slider__label">z105</span>
+			        			    		<i class="icon-zoom modal-slider__zoom-icon"></i>
 			        			    	</div>
 			        			    </div>
 			        			    <div class="modal-slider__item">
 			        			    	<div class="modal-slider__item-wrap">
-			        			    		<img src="https://kenwheeler.github.io/slick/img/fonz3.png" class="modal-slider__item-img" alt="project" title="project">
+			        			    		<a data-lightbox="modal-slider" href="https://kenwheeler.github.io/slick/img/fonz3.png" data-title="Описание изображения">
+			        			    			<img src="https://kenwheeler.github.io/slick/img/fonz3.png" class="modal-slider__item-img" alt="project" title="project">
+			        			    		</a>
 			        			    		<span class="modal-slider__label">z106</span>
+			        			    		<i class="icon-zoom modal-slider__zoom-icon"></i>
 			        			    	</div>
 			        			    </div>
 			        			    <div class="modal-slider__item">
 			        			    	<div class="modal-slider__item-wrap">
-			        			    		<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
+			        			    		<a data-lightbox="modal-slider" href="img/projects/project.jpg" data-title="Описание изображения">
+			        			    			<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
+			        			    		</a>
 			        			    		<span class="modal-slider__label">z107</span>
+			        			    		<i class="icon-zoom modal-slider__zoom-icon"></i>
 			        			    	</div>
 			        			    </div>
 			        			    <div class="modal-slider__item">
 			        			    	<div class="modal-slider__item-wrap">
-			        			    		<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
+			        			    		<a data-lightbox="modal-slider" href="img/projects/project.jpg" data-title="Описание изображения">
+			        			    			<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
+			        			    		</a>
 			        			    		<span class="modal-slider__label">z108</span>
+			        			    		<i class="icon-zoom modal-slider__zoom-icon"></i>
 			        			    	</div>
 			        			    </div>
 			        			    <div class="modal-slider__item">
 			        			    	<div class="modal-slider__item-wrap">
-			        			    		<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
+			        			    		<a data-lightbox="modal-slider" href="img/projects/project.jpg" data-title="Описание изображения">
+			        			    			<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
+			        			    		</a>
 			        			    		<span class="modal-slider__label">z109</span>
+			        			    		<i class="icon-zoom modal-slider__zoom-icon"></i>
 			        			    	</div>
 			        			    </div>
 			        			    <div class="modal-slider__item">
 			        			    	<div class="modal-slider__item-wrap">
-			        			    		<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
-			        			    		<span class="modal-slider__label">z1010</span>
+			        			    		<a data-lightbox="modal-slider" href="img/projects/project.jpg" data-title="Описание изображения">
+			        			    			<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
+			        			    		</a>
+			        			    		<span class="modal-slider__label">z109</span>
+			        			    		<i class="icon-zoom modal-slider__zoom-icon"></i>
 			        			    	</div>
 			        			    </div>
 			        			    <div class="modal-slider__item">
 			        			    	<div class="modal-slider__item-wrap">
-			        			    		<img src="https://kenwheeler.github.io/slick/img/fonz3.png" class="modal-slider__item-img" alt="project" title="project">
+			        			    		<a data-lightbox="modal-slider" href="https://kenwheeler.github.io/slick/img/fonz3.png" data-title="Описание изображения">
+			        			    			<img src="https://kenwheeler.github.io/slick/img/fonz3.png" class="modal-slider__item-img" alt="project" title="project">
+			        			    		</a>
 			        			    		<span class="modal-slider__label">z1011</span>
+			        			    		<i class="icon-zoom modal-slider__zoom-icon"></i>
 			        			    	</div>
 			        			    </div>
 			        			    <div class="modal-slider__item">
 			        			    	<div class="modal-slider__item-wrap">
-			        			    		<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
+			        			    		<a data-lightbox="modal-slider" href="img/projects/project.jpg" data-title="Описание изображения">
+			        			    			<img src="img/projects/project.jpg" class="modal-slider__item-img" alt="project" title="project">
+			        			    		</a>
 			        			    		<span class="modal-slider__label">z1012</span>
+			        			    		<i class="icon-zoom modal-slider__zoom-icon"></i>
 			        			    	</div>
 			        			    </div>
 			        			</div>
@@ -1434,8 +1483,14 @@
 		        				</li>
 		        				<li class="general-info__row general-info__price">
 		        					<span class="general-info__col">Стоимость:</span>
-		        					<ins class="general-info__text">2 204 000 руб.
-									<span class="tooltip" data-toggle="tooltip" data-placement="top" title="Тут будет описание подсказки"><i class="tooltip-icon icon-danger"></i></span>
+		        					<ins class="general-info__text">2 204 000 000 руб.
+										<span class="tooltip" 
+										      data-toggle="tooltip"
+										      data-placement="top"
+										      data-html="true" 
+										      title="В стоимость строительства входит:<br>- стоимость материала;<br>- стоимость работ;<br>- Проектно-сметная документация;<br><br>Более подробную информацию <br>уточняйте на наших менеджеров <br>по тел. 8 (342) 207-97-97">
+										    <i class="tooltip-icon icon-danger"></i>
+										</span>
 		        					</ins>
 		        				</li>
 		        			</ul>

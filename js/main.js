@@ -8,7 +8,7 @@ $(function() {
 	    }
 	});
 
-	$('.navbar-nav .nav-link').click(function(){
+	$('.navbar-nav .nav-link:not([data-toggle])').click(function(){
         var link = $(this).attr('href');
         var coordinats = $(link).offset().top - 50;
 		var windowWidth = $(window).width();
@@ -20,11 +20,25 @@ $(function() {
         return false;
     });
 
+    if($(window).width() > 991){
+		$(".nav-item-dropdown .nav-link").each(function () {
+	        $(this).removeAttr("data-toggle", "collapse");
+	        $(this).siblings('.navbar-nav-submenu').removeClass('collapse');
+	    });
+    } else {
+		$(".nav-item-dropdown .nav-link").each(function () {
+	        $(this).attr("data-toggle", "collapse");
+	        $(this).siblings('.navbar-nav-submenu').addClass('collapse');
+	    });
+    }
+
     new WOW().init();
 
-    WOW.prototype.addProjectAnemation = function(element){
-	    this.boxes.push(element);
-	};
+    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true,
+        'disableScrolling': true
+    });
 
 	$(".phone-mask").mask("+7(999) 999-99-99");
 
@@ -67,19 +81,30 @@ $(function() {
 	function toggleProjectsSlider(projects, btn) {
     	var projectItems = $(projects).find('.project');
     	var button = btn;
+    	//узнаем позицию курсора чтобы 
+    	var x=window.scrollX;
+    	var y=window.scrollY;
+    	
 	  	if ($(projects).hasClass('slick-initialized')) {
 		    $(projects).slick('destroy');
+		    setTimeout(window.scrollTo(x, y), 500);
 		    button.text('Свернуть проекты');
 	     	for (let i=0; i<projectItems.length; i++){
 	     		projectItems.filter("[tabindex='-1']").addClass('show-project');
 	     		projectItems.removeClass('hide-project');
 	     	}
+
 	    } else {
 			$('.projects-slider').not('.slick-initialized').slick(optionsProjectSlider);
 		  	projectItems.filter("[tabindex='0']").addClass('hide-project');
 			projectItems.removeClass('show-project');
 		    button.text('Показать все проекты');
 	    }     
+	}
+
+	function topFunction(elem) {
+	  document.body.scrollTop = 0;
+	  document.documentElement.scrollTop = 0;
 	}
 
 	$('.reviews-slider').slick({
@@ -111,47 +136,47 @@ $(function() {
 	});
 
     // var for center in yandex map, in table & mobile it should be olimp company
-    var centerForYandexMap = [58.021389, 56.259341]; //center for desctop
+ //    var centerForYandexMap = [58.021389, 56.259341]; //center for desctop
 
-    if ($(window).width() < "768"){
-    	centerForYandexMap = [58.023508, 56.265687]; //center for table & mobile
-    }
+ //    if ($(window).width() < "768"){
+ //    	centerForYandexMap = [58.023508, 56.265687]; //center for table & mobile
+ //    }
 
-	if ( $('#map').length) {
-		ymaps.ready(function () {
-		    var myMap = new ymaps.Map("map", {
-		      center: centerForYandexMap,
-		      zoom: 15.5,
-		      controls: []
-		    });
+	// if ( $('#map').length) {
+	// 	ymaps.ready(function () {
+	// 	    var myMap = new ymaps.Map("map", {
+	// 	      center: centerForYandexMap,
+	// 	      zoom: 15.5,
+	// 	      controls: []
+	// 	    });
 
-		    myPlacemarkWithContent = new ymaps.Placemark([58.021520, 56.265614], {
-		        hintContent: 'г. Пермь ул. Фрезеровщиков д. 86',
-		        balloonContent: 'г. Пермь ул. Фрезеровщиков д. 86',
-		        iconContent: ''
-		    }, {
-		        /**
-		         * Options.
-		         * You must specify this type of layout.
-		         */
-		        iconLayout: 'default#imageWithContent',
-		        // Custom image for the placemark icon.
-		        iconImageHref: 'img/point.png',
-		        // The size of the placemark.
-		        iconImageSize: [44, 64],
-		        /**
-		         * The offset of the upper left corner of the icon relative
-		         * to its "tail" (the anchor point).
-		         */
-		        iconImageOffset: [-24, -80],
-		        // Offset of the layer with content relative to the layer with the image.
-		        iconContentOffset: [15, 15],
-		        // Content layout.
-		        //iconContentLayout: MyIconContentLayout
-		    });
+	// 	    myPlacemarkWithContent = new ymaps.Placemark([58.021520, 56.265614], {
+	// 	        hintContent: 'г. Пермь ул. Фрезеровщиков д. 86',
+	// 	        balloonContent: 'г. Пермь ул. Фрезеровщиков д. 86',
+	// 	        iconContent: ''
+	// 	    }, {
+	// 	        *
+	// 	         * Options.
+	// 	         * You must specify this type of layout.
+		         
+	// 	        iconLayout: 'default#imageWithContent',
+	// 	        // Custom image for the placemark icon.
+	// 	        iconImageHref: 'img/point.png',
+	// 	        // The size of the placemark.
+	// 	        iconImageSize: [44, 64],
+	// 	        /**
+	// 	         * The offset of the upper left corner of the icon relative
+	// 	         * to its "tail" (the anchor point).
+	// 	         */
+	// 	        iconImageOffset: [-24, -80],
+	// 	        // Offset of the layer with content relative to the layer with the image.
+	// 	        iconContentOffset: [15, 15],
+	// 	        // Content layout.
+	// 	        //iconContentLayout: MyIconContentLayout
+	// 	    });
 			
-			myMap.geoObjects.add(myPlacemarkWithContent);
-		});
-	}
+	// 		myMap.geoObjects.add(myPlacemarkWithContent);
+	// 	});
+	// }
     
 });
